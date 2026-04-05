@@ -1,13 +1,12 @@
-import ToDo from './ToDo';
-import ToDos from './ToDos';
+import { AuthProvider } from "./context/AuthContext";
+import Navbar from './components/Navbar';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
-    <>
-      <ToDo />
-      <ToDos />
-    </>
-  )
+    <AuthProvider>
+      <Navbar />
+      <Dashboard />
+    </AuthProvider>
+  );
 }
-
-export default App
