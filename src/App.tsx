@@ -1,12 +1,14 @@
-import { AuthProvider } from "./context/AuthContext";
-import Navbar from './components/Navbar';
-import Dashboard from './components/Dashboard';
+import { UserContext } from "./context/UserContext";
+import Profile from "./pages/Profile";
 
 function App() {
+  const user = "Mamoon";
+
   return (
-    <AuthProvider>
-      <Navbar />
-      <Dashboard />
-    </AuthProvider>
+    <UserContext.Provider value={user}>
+      <Profile />
+    </UserContext.Provider>
   );
 }
+
+export default App;
