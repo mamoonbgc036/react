@@ -1,13 +1,12 @@
-import { AuthContext } from './context/AuthContext.tsx'
-import { useContext } from 'react'
-
-export default function Navbar() {
-    const auth = useContext(AuthContext)
-    if (!auth) return null;
-    const { user, login, logout } = auth
+interface Props {
+    user: string | null;
+    login: () => void;
+    logout: () => void
+}
+export default function Navbar({ user, login, logout }: Props) {
     return (
         <>
-            <h1>Welcome {user}</h1>
+            <p>Welcome {user}</p>
             {user ? <button onClick={logout}>Logout</button> : <button onClick={login}>Login</button>}
         </>
     )
