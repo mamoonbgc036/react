@@ -1,15 +1,14 @@
-import { UserContext } from "./context/UserContext";
-import Profile from "./pages/Profile";
-import Footer from './pages/Footer';
+import { useState } from "react";
+import Layout from "./Layout.tsx";
 
 function App() {
-  const user = "Mamoon";
+  const [user, setUser] = useState<string | null>(null);
+
+  const login = () => setUser("Abdullah");
+  const logout = () => setUser(null);
 
   return (
-    <UserContext.Provider value={user}>
-      <Profile />
-      <Footer />
-    </UserContext.Provider>
+    <Layout user={user} login={login} logout={logout} />
   );
 }
 
