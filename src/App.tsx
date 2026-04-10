@@ -1,15 +1,8 @@
-import { useState } from "react";
-import Layout from "./Layout.tsx";
+import Layout from './Layout.tsx'
 
-function App() {
-  const [user, setUser] = useState<string | null>(null);
 
-  const login = () => setUser("Abdullah");
-  const logout = () => setUser(null);
-
+export default function App() {
   return (
-    <Layout user={user} login={login} logout={logout} />
-  );
+    <Layout />
+  )
 }
-
-export default App;

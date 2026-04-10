@@ -1,22 +1,14 @@
-interface Props {
-    user: string | null;
-    login: () => void;
-    logout: () => void;
-}
+import { AuthContext } from './context/AuthContext.tsx'
+import { useContext } from 'react'
 
-const Navbar = ({ user, login, logout }: Props) => {
+export default function Navbar() {
+    const auth = useContext(AuthContext)
+    if (!auth) return null;
+    const { user, login, logout } = auth
     return (
-        <div>
-            {user ? (
-                <>
-                    <p>Welcome {user}</p>
-                    <button onClick={logout}>Logout</button>
-                </>
-            ) : (
-                <button onClick={login}>Login</button>
-            )}
-        </div>
-    );
-};
-
-export default Navbar;
+        <>
+            <h1>Welcome {user}</h1>
+            {user ? <button onClick={logout}>Logout</button> : <button onClick={login}>Login</button>}
+        </>
+    )
+}

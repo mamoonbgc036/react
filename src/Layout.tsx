@@ -1,20 +1,10 @@
-import Navbar from "./Navbar.tsx";
+import Navbar from './Navbar.tsx'
 
-interface Props {
-    user: string | null;
-    login: () => void;
-    logout: () => void;
-}
-
-const Layout = ({ user, login, logout }: Props) => {
+export default function Layout() {
     return (
-        <div>
-            <h1>My App</h1>
-
-            {/* Passing again ↓ */}
-            <Navbar user={user} login={login} logout={logout} />
-        </div>
-    );
-};
-
-export default Layout;
+        <>
+            <h2>My App</h2>
+            <Navbar />
+        </>
+    )
+}
